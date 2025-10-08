@@ -26,22 +26,33 @@ public class BitOperation {
   }
 
   public static int updateBit(int num, int pos, int newBit) {
-    if (newBit == 0) {
+    if (newBit == 0) { // 1 REPLACE WITH BIT ZERO
       return clearBit(num, pos);
-    } else {
+    } else { // 0 REPLACE WITH BIT 1
       return setBit(num, pos);
     }
   }
 
+  public static int clearLastIbits(int n, int i) {
+    int bitMask = ~(0) << i;
+    return n & bitMask;
+  }
+
   public static void main(String[] args) {
-    int num = 10;
-    int pos = 2;
-    int newBit = 1;
+    // int num = 10;
+    // int pos = 2;
+    // int newBit = 1;
     // getBit(num, pos);
 
     // setBit(num, pos);
     // clearBit(num, pos);
-    int res = updateBit(num, pos, newBit);
+    // int res = updateBit(num, pos, newBit);
+    // System.out.println(res);
+
+    // Clear Last i bits
+    int n = 15;
+    int i = 2;
+    int res = clearLastIbits(n, i);
     System.out.println(res);
   }
 }

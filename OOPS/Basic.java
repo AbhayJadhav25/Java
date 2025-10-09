@@ -8,6 +8,13 @@ public class Basic {
 
     p1.setTip(5);
     System.out.println("New Tip : " + p1.tip);
+
+    BankAccount bank = new BankAccount();
+    bank.userName = "Abhay Jadhav";
+    System.out.println("Name : " + bank.userName);
+    bank.setPassword("12234Abh");
+    System.out.println("Password : " + bank.password); // It gives error , using function we can only change the value
+                                                       // of private variable but we never access it.
   }
 }
 
@@ -21,5 +28,14 @@ class Pen {
 
   void setTip(int newTip) {
     tip = newTip;
+  }
+}
+
+class BankAccount {
+  public String userName;
+  private String password;
+
+  public void setPassword(String newPass) {
+    password = newPass;
   }
 }

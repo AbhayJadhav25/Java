@@ -26,3 +26,28 @@ public class TrappingRainWater {
     System.out.println("Water Level : " + waterLevel);
   }
 }
+
+/*
+ * Optimal Solution
+ * 
+ * class Solution {
+ * public int trap(int[] height) {
+ * int n = height.length;
+ * int l = 0 , r =n-1 , lMax =0 , rMax =0;
+ * int totalWater = 0;
+ * while(l<r){
+ * lMax = Math.max(lMax , height[l]);
+ * rMax = Math.max(rMax , height[r]);
+ * 
+ * if(lMax < rMax){
+ * totalWater += lMax - height[l];
+ * l++;
+ * }else{
+ * totalWater += rMax - height[r];
+ * r--;
+ * }
+ * }
+ * return totalWater;
+ * }
+ * }
+ */

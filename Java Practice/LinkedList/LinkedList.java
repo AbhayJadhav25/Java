@@ -29,6 +29,16 @@ public class LinkedList {
     head = newNode;
   }
 
+  public void addLast(int data) {
+    Node newNode = new Node(data);
+    if (head == null) {
+      head = tail = newNode;
+      return;
+    }
+    tail.next = newNode;
+    tail = newNode;
+  }
+
   public void print() {
     Node curr = head;
     while (curr != null) {
@@ -43,6 +53,8 @@ public class LinkedList {
     ll.addFirst(10);
     ll.addFirst(20);
     ll.addFirst(30);
+    ll.addLast(40);
+    ll.addLast(50);
     ll.print();
     /*
      * add()

@@ -35,7 +35,7 @@ public class LinkedList {
       System.out.print(curr.data + "-> ");
       curr = curr.next;
     }
-    System.out.print("null");
+    System.out.print(" null");
   }
 
   public static void main(String[] args) {

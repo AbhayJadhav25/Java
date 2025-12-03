@@ -39,6 +39,18 @@ public class LinkedList {
     tail = newNode;
   }
 
+  public void addMiddle(int index, int data) {
+    Node newNode = new Node(data);
+    Node temp = head;
+    int i = 0;
+    while (i < index - 1) {
+      temp = temp.next;
+      i++;
+    }
+    newNode.next = temp.next;
+    temp.next = newNode;
+  }
+
   public void print() {
     Node curr = head;
     while (curr != null) {
@@ -55,6 +67,7 @@ public class LinkedList {
     ll.addFirst(30);
     ll.addLast(40);
     ll.addLast(50);
+    ll.addMiddle(2, 9);
     ll.print();
     /*
      * add()

@@ -13,11 +13,12 @@ public class LinkedList {
 
   public static Node head;
   public static Node tail;
+  public int size;
 
   public void addFirst(int data) {
     // create new code
     Node newNode = new Node(data);
-
+    size++;
     if (head == null) {
       head = tail = newNode;
       return;
@@ -31,6 +32,7 @@ public class LinkedList {
 
   public void addLast(int data) {
     Node newNode = new Node(data);
+    size++;
     if (head == null) {
       head = tail = newNode;
       return;
@@ -45,6 +47,7 @@ public class LinkedList {
       return;
     }
     Node newNode = new Node(data);
+    size++;
     Node temp = head;
     int i = 0;
     while (i < index - 1) {
@@ -53,6 +56,10 @@ public class LinkedList {
     }
     newNode.next = temp.next;
     temp.next = newNode;
+  }
+
+  public int printSize() {
+    return size;
   }
 
   public void print() {
@@ -66,13 +73,16 @@ public class LinkedList {
 
   public static void main(String[] args) {
     LinkedList ll = new LinkedList();
-    ll.addFirst(10);
-    ll.addFirst(20);
     ll.addFirst(30);
+    ll.addFirst(20);
+    ll.addFirst(10);
     ll.addLast(40);
     ll.addLast(50);
     ll.addMiddle(2, 9);
     ll.print();
+    System.out.println();
+    System.out.println("Size : " + ll.printSize());
+
     /*
      * add()
      * remove()

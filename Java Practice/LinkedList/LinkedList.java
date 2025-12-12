@@ -82,6 +82,7 @@ public class LinkedList {
     if (size == 1) {
       int val = head.data;
       head = tail = null;
+      size = 0;
       return val;
     }
     Node prev = head;
@@ -91,7 +92,39 @@ public class LinkedList {
     int val = prev.next.data; // tail.data
     prev.next = null;
     tail = prev;
+    size--;
     return val;
+  }
+
+  public int iterativeSearch(int key) {
+    Node temp = head;
+    int i = 0;
+    while (temp != null) {
+      if (temp.data == key)
+        return i;
+
+      temp = temp.next;
+      i++;
+    }
+    return -1;
+  }
+
+  public int helper(Node head, int key) {
+    if (head == null)
+      return -1;
+
+    if (head.data == key)
+      return 0;
+
+    int idx = helper(head.next, key);
+    if (idx == -1) {
+      return -1;
+    }
+    return idx + 1;
+  }
+
+  public int recursiveSearch(int key) {
+    return helper(head, key);
   }
 
   public int printSize() {
@@ -105,6 +138,7 @@ public class LinkedList {
       curr = curr.next;
     }
     System.out.print(" null");
+    System.out.println();
   }
 
   public static void main(String[] args) {
@@ -112,30 +146,29 @@ public class LinkedList {
     ll.addFirst(30);
     ll.addFirst(20);
     ll.addFirst(10);
+    ll.print();
+    System.out.println(ll.printSize());
+
     ll.addLast(40);
-    ll.addLast(50);
-    ll.addMiddle(2, 9);
     ll.print();
-    // Print Size
-    // System.out.println();
-    // System.out.println("Size : " + ll.printSize());
+    System.out.println(ll.printSize());
 
-    // After Remove First Element
-    // int val = ll.removeFirst();
-    // System.out.println("Remove Element : " + val);
+    // ll.removeFirst();
     // ll.print();
-    // ll.printSize();
-    // After remove last element
-    int val2 = ll.removeLast();
-    System.out.println("Remove Element : " + val2);
-    ll.print();
-    ll.printSize();
-    /*
-     * add()
-     * remove()
-     * print()
-     * search()
-     */
+    // System.out.println(ll.printSize());
 
+    // ll.removeLast();
+    // ll.print();
+    // System.out.println(ll.printSize());/+
+
+    int pos1 = ll.iterativeSearch(20);
+    System.out.println(pos1);
+
+    int pos2 = ll.recursiveSearch(50);
+    if (pos2 == -1) {
+      System.out.println("Value not found");
+    } else {
+      System.out.println("Value found");
+    }
   }
 }

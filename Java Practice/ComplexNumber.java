@@ -44,7 +44,7 @@ class ComplexNumber {
     int i2 = sc.nextInt();
     complex c2 = new complex(r2, i2);
 
-    complex sum = c1.add(c2);
+    complex sum = c1.add(c2);  //c1 becomes this .
     complex diff = c1.substract(c2);
     complex mul = c1.multiply(c2);
 

@@ -62,7 +62,7 @@ public class Sort {
   }
 
   public static void main(String[] args) {
-    int arr[] = { 12, 17, 9, 7, 13 };
+    int arr[] = { 34, 65, 11, 23, 90, 76 };
     bubbleSort(arr);
     selectionSort(arr);
     insertionSort(arr);
